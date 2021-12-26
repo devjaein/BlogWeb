@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias alias="blog" type="com.fastcampus.jblog.biz.blog.BlogVO"/>
+        <typeAlias alias="category" type="com.fastcampus.jblog.biz.category.CategoryVO"/>
+        <typeAlias alias="post" type="com.fastcampus.jblog.biz.post.PostVO"/>
+        <typeAlias alias="user" type="com.fastcampus.jblog.biz.user.UserVO"/>
+    </typeAliases>
+
+    <mappers>
+        <mapper resource="mappings/blog-mapping.xml"/>
+        <mapper resource="mappings/category-mapping.xml"/>
+        <mapper resource="mappings/post-mapping.xml"/>
+        <mapper resource="mappings/user-mapping.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,61 @@
+body {
+	background-image: url("/images/kubrickbgcolor.jpg");
+}
+.header_bg {
+	background-image: url("/images/kubrickheader.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.footer_bg{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  	padding: 15px 0;
+  	text-align: center;
+	background-image: url("/images/kubrickfooter.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+.main{
+	/* width: 100%; */
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-image: url("/images/kubrickbg.jpg");
+}
+.left{
+	 /* float: left; */
+	 margin-left: 80px;
+     margin-bottom: 30px;
+     margin-top: 80px;
+	 /* box-sizing: border-box; */
+	 /* background-image: url("/images/kubrickbgwide.jpg"); */
+}
+.left_basic{
+	 
+	 margin-left: 80px;
+     margin-bottom: 30px;
+     margin-top: 80px;
+	 /* box-sizing: border-box; */
+	 /* background-image: url("/images/kubrickbgwide.jpg"); */
+}
+
+.right{
+	width: 28%;
+    margin-top: 2%;
+	float: right;
+	/* box-sizing: border-box; */
+	
+}
+
+#title {
+	font-size: 100px;
+	color: white;
+}
+
+#subTitle {
+	font-size: 20px;
+	color: white;
+}
+

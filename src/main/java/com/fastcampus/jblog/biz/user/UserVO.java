@@ -1,0 +1,18 @@
+package com.fastcampus.jblog.biz.user;
+
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+// BLOG_USER와 매핑되는 클래스
+@Data
+public class UserVO {
+	private int userId; 	// 회원 일련번호
+	private String id; 	// 회원 아이디
+	private String password; // 회원 비밀번호
+	private String userName; // 이름
+	private String role; // 권한
+}

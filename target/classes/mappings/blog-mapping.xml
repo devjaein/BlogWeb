@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BlogDAO">
+
+    <resultMap type="blog" id="blogResult">
+        <id property="blogId" column="BLOG_ID"/>
+        <result property="title" column="TITLE"/>
+        <result property="tag" column="TAG"/>
+        <result property="cntDisplayPost" column="CNT_DISPLAY_POST"/>
+        <result property="status" column="STATUS"/>
+        <result property="userId" column="USER_ID"/>
+    </resultMap>
+
+    <insert id="insertBlog">
+        insert into
+        blog(blog_id, title, user_id)
+        values (#{blogId}, #{title}, #{userId})
+    </insert>
+
+    <update id="updateBlog">
+        update blog
+        set title=#{title}, tag=#{tag}, cnt_display_post=#{cntDisplayPost}
+        where blog_id=#{blogId}
+    </update>
+
+    <update id="deleteRequest">
+        update blog
+        set status=#{status}
+        where blog_id=#{blogId}
+    </update>
+
+    <delete id="deleteBlog">
+        delete from blog
+        where blog_id=#{blogId}
+    </delete>
+
+    <select id="getBlog" resultMap="blogResult">
+        select *
+        from blog
+        where blog_id=#{blogId}
+    </select>
+
+    <select id="getBlogList" resultMap="blogResult">
+        select b.blog_id, b.title, b.status, u.user_name
+        from blog b, blog_user u
+        where b.blog_id=u.user_id
+        <if test="searchCondition=='TITLE'">
+            and upper(b.title) like upper('%'||#{searchKeyword}||'%')
+        </if>
+        <if test="searchCondition=='TAG'">
+            and upper(b.tag) like upper ('%'||#{searchKeyword}||'%')
+        </if>
+        <if test="searchCondition=='BLOGGER'">
+            and upper (u.user_name) like ('%'||#{searchKeyword}||'%')
+        </if>
+        order by b.title;
+    </select>
+
+</mapper>

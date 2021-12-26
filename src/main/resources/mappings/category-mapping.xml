@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CategoryDAO">
+    <resultMap type="category" id="categoryResult">
+        <id property="categoryId" column="category_id"/>
+        <result property="blogId" column="blog_id"/>
+        <result property="categoryName" column="category_name"/>
+        <result property="displayType" column="display_type"/>
+        <result property="cntDisplayPost" column="cnt_display_post"/>
+        <result property="description" column="description"/>
+        <result property="createdDate" column="created_date"/>
+        <result property="modifiedDate" column="modified_date"/>
+    </resultMap>
+
+    <insert id="insertCategory">
+        insert into
+        category
+            (
+                blog_id,
+                category_id,
+                category_name,
+                display_type,
+                cnt_display_post,
+                description
+            )
+        values
+               (
+                #{blogId},
+                (select nvl(max(category_id), 0) + 1 from category),
+                #{categoryName},
+                #{displayType},
+                #{cntDisplayPost},
+                #{description}
+               )
+    </insert>
+
+    <update id="updateCategory">
+        update category
+        set category_name        = #{categoryName},
+            display_type         = #{displayType},
+            cnt_display_post     = #{cntDisplayPost},
+            description          = #{description}
+        where category_id = #{categoryId}
+    </update>
+
+    <delete id="deleteCategory">
+        delete category where category_id=#{category_id}
+    </delete>
+
+    <select id="getCategory" resultMap="categoryResult">
+        select * from category where category_id=#{categoryId}
+    </select>
+
+    <select id="getCategoryList" resultMap="categoryResult">
+        select * from category where blog_id=#{blogId}
+    </select>
+</mapper>
