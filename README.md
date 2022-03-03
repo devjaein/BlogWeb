@@ -6,3 +6,6 @@ KDT 과정을 수료하며 진행한 첫번째 미니 프로젝트입니다.
 
 #### Tech Stack
 - Spring Boot, Java, JDBC, MyBatis, HTML, JSP, H2
+
+#### Period
+2021.11.22 ~ 2021.11.26
